@@ -62,5 +62,16 @@ app.put("/item/:id", function (req, res) {
   res.send("Item atualizado com sucesso!")
 }) 
 
+// Delete - [DELETE] /item/:id
+ app.delete("/item/:id", function (req, res) {
+  // obtemos o ID do Parâmetro de rota
+  const id = req.params.id - 1
+
+  // Removemos o item da lista
+  delete lista[id]
+
+  // Exibimos uma mensagem de sucesso
+  res.send("Item removido com sucesso!")
+})
 
 app.listen(3000)
