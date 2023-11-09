@@ -47,4 +47,20 @@ app.post("/item", function (req, res) {
   res.send("item adicionado com sucesso!")
 })
 
+// Update - [PUT] /item/:id
+app.put("/item/:id", function (req, res) {
+  // Obtemos o ID do parâmetro de rota e fazemos 
+  // a correção de índice
+  const id = req.params.id - 1
+
+  // Obtemos o novo item a ser atualizado
+  const novoItem = req.body.nome
+
+ // enviamos uma mensagem de sucesso
+  lista[id] = novoItem
+
+  res.send("Item atualizado com sucesso!")
+}) 
+
+
 app.listen(3000)
